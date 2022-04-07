@@ -3,6 +3,7 @@ package ro.pub.cs.systems.eim.practicaltest01var04;
 import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
+import android.util.Log;
 
 public class PracticalTest01Var04Service  extends Service {
     private  ProcessingThread processingThread;
@@ -39,7 +40,7 @@ public class PracticalTest01Var04Service  extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-//            Log.d(Constants.TAG, "onStartCommand() method was invoked");
+           Log.d(Constants.TAG, "onStartCommand() method was invoked");
         String s1 = intent.getStringExtra("Nume");
         String s2 = intent.getStringExtra("Grupa");
 

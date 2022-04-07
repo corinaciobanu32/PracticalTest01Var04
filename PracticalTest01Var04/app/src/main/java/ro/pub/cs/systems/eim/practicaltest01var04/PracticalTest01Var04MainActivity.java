@@ -127,7 +127,7 @@ public class PracticalTest01Var04MainActivity extends AppCompatActivity {
                 }
             }
             if (!text1.getText().toString().equals("") && !text2.getText().toString().equals("")){
-                Intent intent = new Intent(getApplicationContext(), PracticalTest01Var04SecondaryActivity.class);
+                Intent intent = new Intent(getApplicationContext(), PracticalTest01Var04Service.class);
                 intent.putExtra("Nume", text1.getText().toString());
                 intent.putExtra("Grupa", text2.getText().toString());
                 startService(intent);
