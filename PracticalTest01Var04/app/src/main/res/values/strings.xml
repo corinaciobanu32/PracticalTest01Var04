@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">PracticalTest01Var04</string>
+    <string name="field_incomplete">Field incomplete</string>
 </resources>
