@@ -30,7 +30,7 @@ public class PracticalTest01Var04MainActivity extends AppCompatActivity {
 
     private PracticalTest01Var04ServiceReceiver practicalTest01ServiceReceiver;
     private IntentFilter startedServiceIntentFilter;
-    
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,6 +68,21 @@ public class PracticalTest01Var04MainActivity extends AppCompatActivity {
                 completeText.setText(savedInstanceState.getString("completeText"));
             }
         }
+    }
+
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        registerReceiver(practicalTest01ServiceReceiver, startedServiceIntentFilter);
+
+    }
+
+    @Override
+    protected void onPause() {
+        unregisterReceiver(practicalTest01ServiceReceiver);
+
+        super.onPause();
     }
 
     private NavigateClickListener navigateClickListener = new NavigateClickListener();
@@ -113,6 +128,8 @@ public class PracticalTest01Var04MainActivity extends AppCompatActivity {
             }
             if (!text1.getText().toString().equals("") && !text2.getText().toString().equals("")){
                 Intent intent = new Intent(getApplicationContext(), PracticalTest01Var04SecondaryActivity.class);
+                intent.putExtra("Nume", text1.getText().toString());
+                intent.putExtra("Grupa", text2.getText().toString());
                 startService(intent);
                 serviceActive = true;
             }
