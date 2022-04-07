@@ -172,4 +172,11 @@ public class PracticalTest01Var04MainActivity extends AppCompatActivity {
         savedInstanceState.putString("text2", String.valueOf(s2));
         savedInstanceState.putString("completeText", String.valueOf(s3));
     }
+
+    @Override
+    protected void onDestroy() {
+        Intent intent = new Intent(getApplicationContext(), PracticalTest01Var04Service.class);
+        stopService(intent);
+        super.onDestroy();
+    }
 }
